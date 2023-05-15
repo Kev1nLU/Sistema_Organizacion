@@ -17,10 +17,7 @@
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.NombreHabilidad)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.IdEmpleadoNavigation.NombreCompleto)
-            </th>  
+            </th> 
             <th></th>
         </tr>
     </thead>
@@ -33,9 +30,7 @@
             <td>
                 @Html.DisplayFor(modelItem => item.NombreHabilidad)
             </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IdEmpleadoNavigation.NombreCompleto)
-            </td>
+          
             <td>
                 <a asp-action="Edit" asp-route-id="@item.Id">Editar habilidad</a> |
                 <a asp-action="Details" asp-route-id="@item.Id">Ver habilidad</a> |
