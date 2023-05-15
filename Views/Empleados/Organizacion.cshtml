@@ -1,0 +1,24 @@
+﻿@model IEnumerable<Sistema_Organizacion.Models.Empleado>
+
+    @{
+        ViewData["Title"] = "Organización";
+    }
+
+    <h1>Organización</h1>
+
+    @foreach (var empleado in Model)
+    {
+    <div>
+        <h2>@empleado.NombreCompleto</h2>
+        <ul>
+            @foreach (var subordinado in empleado.InverseIdJefeNavigation)
+            {
+            <li>@subordinado.NombreCompleto (Subordinado)</li>
+            }
+        </ul>
+    </div>
+    }
+
+<div>
+    <a asp-action="Index">Volver a la lista</a>
+</div>

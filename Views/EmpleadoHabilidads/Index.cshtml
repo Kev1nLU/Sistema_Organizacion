@@ -1,0 +1,47 @@
+﻿@model IEnumerable<Sistema_Organizacion.Models.EmpleadoHabilidad>
+
+@{
+    ViewData["Title"] = "Habilidades";
+}
+
+<h1>Habilidades</h1>
+
+<p>
+    <a asp-action="Create">Asignar habilidad</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.IdEmpleado)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NombreHabilidad)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdEmpleadoNavigation.NombreCompleto)
+            </th>  
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdEmpleado)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NombreHabilidad)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdEmpleadoNavigation.NombreCompleto)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Editar habilidad</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Ver habilidad</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Eliminar habilidad</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

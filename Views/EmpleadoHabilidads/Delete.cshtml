@@ -1,0 +1,33 @@
+﻿@model Sistema_Organizacion.Models.EmpleadoHabilidad
+
+@{
+    ViewData["Title"] = "Eliminar Habilidad";
+}
+
+<h1>Eliminar habilidad</h1>
+
+<h3>Estas seguro de querer eliminar esta habilidad?</h3>
+<div>
+    <h4>Eliminación de Habilidad</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.IdEmpleado)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.IdEmpleado)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.NombreHabilidad)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.NombreHabilidad)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="Eliminar" class="btn btn-danger" /> |
+        <a asp-action="Index">Volver a la lista</a>
+    </form>
+</div>

@@ -1,0 +1,68 @@
+﻿@model IEnumerable<Sistema_Organizacion.Models.Empleado>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Mantenimiento de Empleados</h1>
+
+<p>
+    <a asp-action="Create">Agregar Empleado</a>
+</p>
+@using (Html.BeginForm())
+{
+    <p>
+        Encontrar por nombre de empleado o por número de área: @Html.TextBox("SearchString")
+        <input placeholder="TODAS LAS AREAS" type="submit" value="Buscar" />
+    </p>
+}
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdArea)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NombreCompleto)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cedula)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Correo)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdArea)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NombreCompleto)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cedula)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Correo)
+            </td>
+
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Editar</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Ver Empleado</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Eliminar</a>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>
